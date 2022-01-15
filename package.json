@@ -7,7 +7,7 @@
   "main": "index.js",
   "devDependencies": {},
   "scripts": {
-    "scss": "node-sass -w scss/style.scss  scss/style.css"
+    "scss": "node-sass -w scss/style.scss  style.css"
   },
   "author": "rifaldi",
   "license": "ISC",
