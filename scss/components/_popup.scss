@@ -50,8 +50,8 @@
     transform: translate(-50%, -50%) scale(0.5);
     transition: all 0.4s 0.2s;
 
-    @include respond(tab-land){
-display: flex;
+    @include respond(tab-land) {
+      display: flex;
     }
   }
 
@@ -73,7 +73,6 @@ display: flex;
     display: table-cell;
     padding: 3rem 5rem;
     vertical-align: middle;
-    
   }
 
   &__img {
