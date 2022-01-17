@@ -25,14 +25,23 @@
     height: 15rem;
     float: left;
     shape-outside: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
     transform: translateX(-3rem) skewX(12deg);
     position: relative;
+    overflow: hidden;
+    border-radius: 50%;
 
     @include respond(phone){
       transform: translate(-3rem) skew(0);
       shape-outside: circle(45% at 50% 50% );
       clip-path:circle(50% at 60% 50%) ;
+      border-radius: none;
+    }
+
+    
+    @supports(clip-path: polygon(0 0)) or (-webkit-clipt-path:polygon(0 0)){
+      clip-path: circle(50% at 50% 50%);
+      -webkit-clip-path: circle(50% at 50% 50%);
+
     }
   }
 

@@ -15,7 +15,7 @@
     transform: scale(1);
   }
 
-  @supports (backdrop-filter: blur(10px)) {
+  @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px) ) {
     background-color: rgba($dark, 0.4);
     backdrop-filter: blur(10px);
   }
@@ -50,9 +50,7 @@
     transform: translate(-50%, -50%) scale(0.5);
     transition: all 0.4s 0.2s;
 
-    @include respond(tab-land) {
-      display: flex;
-    }
+
   }
 
   &:target {
@@ -72,7 +70,7 @@
     width: 66.6666667%;
     display: table-cell;
     padding: 3rem 5rem;
-    vertical-align: middle;
+    vertical-align: middle ;
   }
 
   &__img {
@@ -89,4 +87,49 @@
 
     hyphens: auto;
   }
+
+  @include respond(tab-land) {
+
+        &__content{
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+        }
+        &__left{
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+        }
+        &__right{
+          width: 100%;
+          text-align: center;
+          padding:2rem 4rem;
+        }
+        &__content &__img{
+          width: 50%;
+        }
+        &__close{
+          &:link,
+          &:visited{
+            top: 2rem;
+            right: 2rem;
+          }
+        }
+      }
+  @include respond(phone) {
+
+    &__text {
+      margin-bottom: 3rem;
+      column-count: 1;  
+      hyphens: auto;
+    }
+
+  &__close{
+    &:link,
+    &:visited{
+      top: 1rem;
+      right: 2rem;
+    }
+  }
+      }
 }

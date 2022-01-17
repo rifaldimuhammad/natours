@@ -1,13 +1,24 @@
 {
-  "dependencies": {
-    "node-sass": "^7.0.1"
-  },
   "name": "natour-project",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^10.4.2",
+    "concat": "^1.0.3",
+    "live-server": "^1.2.1",
+    "node-sass": "^7.0.1",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^9.1.0"
+  },
   "scripts": {
-    "scss": "node-sass -w scss/style.scss  style.css"
+    "watch:sass": "node-sass -w scss/style.scss  css/style.css",
+    "devserver": "live-server",
+    "start": "npm-run-all --parallel devserver watch:sass",
+    "compile:sass": "node-sass  scss/style.scss  css/style.comp.css",
+    "concat:sass": "concat -o css/style.concat.css css/style-icon.css css/style.comp.css",
+    "prefix:sass": "postcss --use autoprefixer -b 'last 10 versions' css/style.concat.css -o css/style.prefix.css",
+    "compress:sass": "node-sass css/style.prefix.css css/style.css --output-style compressed",
+    "build:sass": "npm-run-all compile:sass concat:sass prefix:sass compress:sass "
   },
   "author": "rifaldi",
   "license": "ISC",
